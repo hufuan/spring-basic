@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fuhu.demo.h2.mapper.CatMapper">
-    <select id="selectAll" resultType="com.springboot.mybatis.entity.Cat">
+    <select id="selectAll" resultType="com.fuhu.demo.h2.entity.Cat">
         SELECT * from cat
     </select>
 </mapper>

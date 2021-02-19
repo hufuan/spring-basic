@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.fuhu.demo</groupId>
-	<artifactId>h2</artifactId>
+	<artifactId>h2-mybatis</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>h2</name>
 	<description>Demo project for Spring Boot</description>
@@ -44,7 +44,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>5.0.4.RELEASE</version>
+			<version>5.3.1</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
