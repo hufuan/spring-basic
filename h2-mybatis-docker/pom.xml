@@ -15,6 +15,7 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<docker.image.prefix>fuhu</docker.image.prefix>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -55,19 +56,28 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-		</plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+        <!--使用docker-maven-plugin插件-->
+        <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <dockerDirectory></dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+    </plugins>
 		<!--把放置在mapper路径下的xml文件编译后放在一起-->
 		<resources>
 			<resource>
@@ -79,9 +89,6 @@
 			</resource>
 			<resource>
 				<directory>src/main/resources</directory>
-				<excludes>
-					<exclude>**/source/*/*</exclude>
-				</excludes>
 			</resource>
 		</resources>
 	</build>
