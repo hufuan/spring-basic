@@ -1,0 +1,22 @@
+syntax = "proto2";
+
+option java_package = "com.fuhu.demo.protobuf";
+option java_outer_classname = "MyBaseProto";
+ 
+enum Type {
+    ONE = 1;
+    TWO = 2;
+    THREE = 3;
+}
+ 
+message Body {
+    repeated string l = 1; // repeated 列表
+    map<string, string> m = 2; //
+    optional Type type = 3;
+}
+ 
+message BaseProto {
+    required int32 code = 1;//   默认值，表示成员只有0个或者1个
+    required string msg = 2;//
+    optional Body result = 3;
+}
