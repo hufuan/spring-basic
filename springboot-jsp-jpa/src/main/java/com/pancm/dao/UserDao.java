@@ -1,6 +1,5 @@
 package com.pancm.dao;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.pancm.pojo.User;
@@ -14,7 +13,6 @@ import com.pancm.pojo.User;
 * @author pancm
 * @date 2018年1月9日
  */
-@Mapper
 public interface UserDao extends JpaRepository<User, Long>{
 	
 }
